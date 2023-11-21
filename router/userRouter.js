@@ -73,7 +73,22 @@ const users = await User.find({ ...filter, ...nameSearchQuery })
 
 router.route('/get/user').get(getAllUser);
 
-
+const getAllUserDetails=async(req,res)=>{
+    try{
+       const users=await User.find({});
+       res.status(200).json({
+        users
+       })
+    }catch(err){
+        console.log(err);
+        res.status(500).json({
+            "success":false,
+            "message":"server err , try after sometime",
+            err
+        })
+    }
+}
+router.route('/get/all/user').get(getAllUserDetails);
 /// search user by id 
 const getUserByid=async(req,res)=>{
     try{

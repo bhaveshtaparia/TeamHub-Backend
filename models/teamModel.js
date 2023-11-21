@@ -4,10 +4,12 @@ const teamSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
+    unique:true,
   },
   users: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // Reference to your User model
+    userId:{
+      type: Number,
+    }
   }],
 });
 

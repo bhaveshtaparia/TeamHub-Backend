@@ -9,6 +9,7 @@ const dbconnection=require('./server');
 dbconnection();
 const AuthRouter=require('./router/authRouter')
 const UserRouter=require('./router/userRouter')
+const TeamRouter=require('./router/TeamRouter')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
@@ -19,6 +20,8 @@ app.use(cors({
 }));
 app.use('/api/v1',AuthRouter)
 app.use('/api/v1',UserRouter)
+app.use('/api/v1',TeamRouter);
+
 app.listen(process.env.PORT,()=>{
     console.log("working on localhost",process.env.PORT);
 })

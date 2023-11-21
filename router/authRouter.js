@@ -4,8 +4,6 @@ const Signup=require('../models/singupModel');
 const bcrypt=require('bcryptjs')
 const {auth}=require('../middleware/auth')
 const register=async(req,res)=>{
-
-    // console.log(req);
     try{
        
      if(req.body.password!==req.body.cpassword){
